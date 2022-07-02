@@ -1,1 +1,1 @@
-this is my redux saga lerning repo
+this is my redux saga learning repo
