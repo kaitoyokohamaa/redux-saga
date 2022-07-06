@@ -4,10 +4,11 @@ import "./index.css";
 import App from "./App";
 import NewApp from "./NewApp";
 import reportWebVitals from "./reportWebVitals";
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
+import createSagaMiddleware from "redux-saga";
 import reducers from "./reducers";
 import { Provider } from "react-redux";
-
+import rootSaga from "./sagas/rootSaga";
 // // 1. Store - global state
 // // 2. Action - define what to do
 // const petIncrement = () => {
@@ -43,10 +44,14 @@ import { Provider } from "react-redux";
 // store.dispatch(petIncrement());
 // store.dispatch(petDecrement());
 
-const store = createStore(
-  reducers,
+const sagaMiddleware = createSagaMiddleware();
+const middleware = [sagaMiddleware];
+const store = compose(
+  applyMiddleware(...middleware),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+)(createStore)(reducers);
+
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <React.StrictMode>

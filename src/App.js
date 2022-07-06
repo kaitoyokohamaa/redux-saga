@@ -1,18 +1,16 @@
 import "./App.css";
-import { petIncrement, petDecrement } from "./actions";
+import { getUsers } from "./actions";
 import { useSelector, useDispatch } from "react-redux";
-
+import { useEffect, useEffects } from "react";
 function App() {
-  const petCounter = useSelector((state) => state.petCounter);
-  const petFavorite = useSelector((state) => state.petFavorite);
   const dispatch = useDispatch();
+  const users = useSelector((state) => state.users.users);
+  useEffect(() => {
+    dispatch(getUsers());
+  }, []);
   return (
     <div className="App">
       <h1>Welcome to React Redux Crash Course 2021</h1>
-      <button onClick={() => dispatch(petIncrement(2))}>Add pet</button>
-      <button onClick={() => dispatch(petDecrement())}>Remove pet</button>
-      <h1>Pet counter {petCounter}</h1>
-      <h2>Number of favorite pets so far {petFavorite}</h2>
     </div>
   );
 }
