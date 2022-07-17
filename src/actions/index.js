@@ -13,6 +13,6 @@ export const petDecrement = () => {
 
 export const getUsers = () => {
   return {
-    type: "GET_USERS_REQUESTED",
+    type: "GET_USER_REQUESTED",
   };
 };

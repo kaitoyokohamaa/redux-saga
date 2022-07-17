@@ -1,6 +1,6 @@
 const url = "https://jsonplaceholder.typicode.com/users";
 
-function fetchGetUsers() {
+async function fetchGetUsers() {
   return fetch(url, {
     method: "GET",
   })

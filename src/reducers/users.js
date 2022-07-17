@@ -1,8 +1,8 @@
-const initialState = { users: [], loafing: false, error: null };
+const initialState = { users: [], loading: false, error: null };
 const users = (state = initialState, action) => {
-  switch (action.action) {
+  switch (action.type) {
     case "GET_USERS_REQUESTED":
-      return { ...state, loafing: true };
+      return { ...state, loading: true };
     case "GET_USERS_SUCCESS":
       return { ...state, loading: false, users: action.users };
     case "GET_USERS_FAILED":
