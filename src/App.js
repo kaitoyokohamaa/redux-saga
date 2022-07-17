@@ -12,7 +12,11 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome to React Redux Crash Course 2021</h1>
-      <p>{users}</p>
+      <p>
+        {users.map((res) => {
+          console.log(res);
+        })}
+      </p>
     </div>
   );
 }
