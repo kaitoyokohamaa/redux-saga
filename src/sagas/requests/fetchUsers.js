@@ -1,4 +1,4 @@
-const url = "https://jsonplaceholder.typicode.com/users";
+const url = "https://jsonplaceijojoijojiholder.typicode.com/users";
 
 async function fetchGetUsers() {
   return fetch(url, {

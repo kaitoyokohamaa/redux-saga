@@ -4,9 +4,9 @@ import fetchGetUsers from "../requests/fetchUsers";
 function* handleGetUsers() {
   try {
     const users = yield call(fetchGetUsers);
-    console.log(users)
     yield put({ type: "GET_USERS_SUCCESS", users });
   } catch (err) {
+    console.log(err.message);
     yield put({ type: "GET_USERS_FAILED", message: err.message });
   }
 }
